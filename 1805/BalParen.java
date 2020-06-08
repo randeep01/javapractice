@@ -7,6 +7,7 @@ public class BalParen{
 	}
 	public static String bal(String str)
 	{
+		System.out.println("ori:"+str);
 		if(str==null){
 			return null;
 		}
@@ -22,13 +23,12 @@ public class BalParen{
 		while(q.isEmpty()!=true)
 		{
 			String val = q.poll();
-			//System.out.println(val);
+			System.out.println(val);
 			if(checkBal(val) == 0)
 			{
-				System.out.println("result" + val);
+//				System.out.println("result" + val);
 				return val;
 			}else{
-
 				for(int i = 0;i<val.length();i++)
 				{
 					String temp = val.substring(0,i) + val.substring(i+1);
@@ -51,8 +51,8 @@ public class BalParen{
 		{
 			if(str.charAt(i) == ')'){
 				val--;
-			//	if(val<0)
-			//		return val;
+				if(val<0)
+					return val;
 			}
 			else if(str.charAt(i) == '('){
 				val++;

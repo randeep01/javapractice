@@ -1,8 +1,6 @@
 public class Power{
 	public static void main(String args[]){
-
-		System.out.println((double)power(2,-3));
-
+		System.out.println((double)power(2,3));
 	}
 	public static double power(int i,int n)
 	{
@@ -13,11 +11,10 @@ public class Power{
 	}
 	public static double powerutils(int i,int n){
 		if(n ==0) return 1;
-		double temp = power(i,n/2);
-
+		double temp = powerutils(i,n/2);
 		if(n%2==0)
-		 return temp*temp;
+			return temp*temp;
 		else
-		return temp*temp*i;	
+			return temp*temp*i;	
 	}
 }
