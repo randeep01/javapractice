@@ -12,6 +12,30 @@ public class Nearest{
 		printArr("Nearest Greatest to Right", res);
 		printArr("Nearest smallest to right", nearestSmallestRight(arr));
 		printArr("Nearest greatest to left", nearestGreatestLeft(arr));
+		printArr("Nearest smallest to left", nearestSmallestLeft(arr));
+	}
+	static ArrayList<Integer> nearestSmallestLeft(int arr[])
+	{	
+		ArrayList<Integer> al = new ArrayList<>();
+		Stack<Integer> st = new Stack<>();
+		for(int i =0;i<arr.length;i++)
+		{
+			if(st.empty())
+				al.add(-1);
+			else if(!st.empty() && arr[i] > st.peek())
+				al.add(st.peek());
+			else if(!st.empty() && arr[i] <= st.peek())
+			{
+				while(!st.empty() && arr[i] <= st.peek())
+					st.pop();
+				if(st.empty())
+					al.add(-1);
+				else if(arr[i] > st.peek())
+					al.add(st.peek());
+			}
+			st.push(arr[i]);
+		}
+		return al;
 	}
 	static ArrayList<Integer> nearestGreatestLeft(int arr[])
 	{
