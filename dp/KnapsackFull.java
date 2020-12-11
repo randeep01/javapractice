@@ -1,7 +1,4 @@
 package dp;
-
-
-
 public class KnapsackFull {
     static int[][] t = new int[4][51];
     public static void main(String args[]){
